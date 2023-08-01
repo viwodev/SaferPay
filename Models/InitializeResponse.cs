@@ -29,6 +29,8 @@ namespace SaferPay.Models
         /// </summary>
         public bool RedirectRequired { get; set; }
 
+        public string RedirectUrl { get; set; }
+
         /// <summary>
         /// Mandatory if RedirectRequired is true. Contains the URL for the redirect to use for example the Saferpay hosted register form.
         /// </summary>

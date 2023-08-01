@@ -65,6 +65,15 @@ namespace SaferPay
             => client.Send<InitializeResponse, InitializeRequest>(SaferPayEndpointConstants.TransactionEndpoint + "/Initialize", request);
 
         /// <summary>
+        /// This method may be used to start a transaction which may involve either DCC and / or 3d-secure.
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public static InitializeResponse InitializePaymentPage(this ISaferPayClient client, InitializeRequest request)
+            => client.Send<InitializeResponse, InitializeRequest>(SaferPayEndpointConstants.PaymentPageEndpoint + "/Initialize", request);
+
+        /// <summary>
         /// This function may be called to authorize a transaction which was started by a call to Transaction/Initialize.
         /// </summary>
         /// <param name="client"></param>
@@ -72,6 +81,15 @@ namespace SaferPay
         /// <returns></returns>
         public static AuthorizeResponse Authorize(this ISaferPayClient client, AuthorizeRequest request)
             => client.Send<AuthorizeResponse, AuthorizeRequest>(SaferPayEndpointConstants.TransactionEndpoint + "/Authorize", request);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public static AuthorizeResponse AssertPaymentPage(this ISaferPayClient client, AuthorizeRequest request)
+            => client.Send<AuthorizeResponse, AuthorizeRequest>(SaferPayEndpointConstants.PaymentPageEndpoint + "/Assert", request);
 
         /// <summary>
         /// This method may be used to finalize previously authorized transactions and refunds.

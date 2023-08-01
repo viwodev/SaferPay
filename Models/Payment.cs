@@ -1,4 +1,5 @@
 using System.CodeDom;
+using System.Collections.Generic;
 
 namespace SaferPay.Models
 {
@@ -32,7 +33,15 @@ namespace SaferPay.Models
         /// Mandate reference of the payment. Needed for German direct debits (ELV) only. The value has to be unique.
         /// </summary>
 		public string MandateId { get; set; }
+
+        /// <summary>
+        /// Notification
+        /// </summary>
+        public Notification Notification { get; set; }
+
     }
+
+
 
     public class AuthorizationPayment : BasePayment
     {
@@ -64,4 +73,5 @@ namespace SaferPay.Models
         /// </summary>
 		public RecurringOptions Recurring { get; set; }
     }
+
 }
