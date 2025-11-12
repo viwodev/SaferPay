@@ -114,7 +114,7 @@ namespace SaferPay
             var req = new RestRequest();
             req.Method = Method.Post;
             req.AddJsonBody(request);
-            var res = client.Execute(req);
+            var res = client.Post(req);
             if (res != null && res.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 return JsonConvert.DeserializeObject<TResponse>(res.Content, _jsonSerializerSettings);
